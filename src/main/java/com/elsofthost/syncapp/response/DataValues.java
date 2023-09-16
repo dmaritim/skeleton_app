@@ -2,6 +2,11 @@ package com.elsofthost.syncapp.response;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
+=======
+import javax.annotation.Generated;
+
+>>>>>>> 67df3bf126e02c14a84dd83edd9d17d6e6653c5c
 import com.elsofthost.syncapp.entity.DataValue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

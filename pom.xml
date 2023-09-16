@@ -31,10 +31,13 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+=======
+>>>>>>> 67df3bf126e02c14a84dd83edd9d17d6e6653c5c
 			<artifactId>spring-boot-starter-quartz</artifactId>
 		</dependency>			
 		<dependency>
@@ -46,6 +49,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
 		   <groupId>org.springframework.boot</groupId>
 		   <artifactId>spring-boot-starter-security</artifactId>
 		</dependency>		
@@ -54,6 +58,8 @@
 		    <artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>	
 		<dependency>
+=======
+>>>>>>> 67df3bf126e02c14a84dd83edd9d17d6e6653c5c
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
@@ -101,7 +107,11 @@
 		<dependency>
 		    <groupId>org.slf4j</groupId>
 		    <artifactId>slf4j-log4j12</artifactId>
+<<<<<<< HEAD
 		</dependency>	
+=======
+		</dependency>							
+>>>>>>> 67df3bf126e02c14a84dd83edd9d17d6e6653c5c
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

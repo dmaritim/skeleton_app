@@ -1,7 +1,14 @@
 package com.elsofthost.syncapp.entity;
 
+<<<<<<< HEAD
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+=======
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+>>>>>>> 67df3bf126e02c14a84dd83edd9d17d6e6653c5c
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;

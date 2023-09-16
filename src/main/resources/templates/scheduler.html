@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Student Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/students}">Student Management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/students}">Teacher Management</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>Scheduled Tasks:</h2>
+                <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+		<table class="table table-bordered">
+			<thead>
+				<tr class="active">
+					<th>Id</th>
+					<th>Name</th>
+					<th>Group</th>
+					<th>Crons</th>
+					<th>State</th>
+					<th>Description</th>
+					<!-- <th>interface</th> -->
+					<th style="text-align: center;">Operation</th>
+				</tr>
+			</thead>
+			<tbody  th:each="item : ${jobs}">
+				<tr th:attr="data-id=${item.Id}">
+					<td th:text="${item.Id}"></td>
+					<td th:id="${'name_' + item.Id}" th:text="${item.jobName}"></td>
+					<td th:id="${'group_' + item.Id}" th:text="${item.jobGroup}"></td>
+					<td th:id="${'cron_' + item.Id}" th:text="${item.cronExpression}"></td>
+					<td th:id="${'status_' + item.Id}" th:text="${item.jobStatus}"></td>
+					<td th:id="${'desc_' + item.Id}" th:text="${item.desc}"></td>
+					<!-- <td>$!item.interfaceName</td> -->
+					<td style="text-align: center;">
+						<div class="btn-group text-center" role="group"
+							th:attr="data-id=${item.Id}">
+							<button type="button" class="btn btn-default btnRun">Run Once</button>
+							<button type="button" class="btn btn-default btnPause">Pause</button>
+							<button type="button" class="btn btn-default btnResume">Resume</button>
+							<button type="button" class="btn btn-default btnEdit">Edit</button>
+							<button type="button" class="btn btn-warning btnDelete">Delete</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

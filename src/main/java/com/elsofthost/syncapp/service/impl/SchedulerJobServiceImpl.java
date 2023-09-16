@@ -121,14 +121,14 @@ public class SchedulerJobServiceImpl implements SchedulerJobService{
 			scheduleJob.setCronJob(false);
 			scheduleJob.setRepeatTime((long) 1);
 		}
-		if (StringUtils.isEmpty(scheduleJob.getJobId())) {
+		if (StringUtils.isEmpty(scheduleJob.getId())) {
 			//log.info("Job Info: {}", scheduleJob);
 			scheduleNewJob(scheduleJob);
 		} else {
 			updateScheduleJob(scheduleJob);
 		}
-		scheduleJob.setDesc("i am job number " + scheduleJob.getJobId());
-		scheduleJob.setInterfaceName("interface_" + scheduleJob.getJobId());
+		scheduleJob.setDesc("i am job number " + scheduleJob.getId());
+		scheduleJob.setInterfaceName("interface_" + scheduleJob.getId());
 		//log.info(">>>>> jobName = [" + scheduleJob.getJobName() + "]" + " created.");
 	}
 
@@ -147,11 +147,11 @@ public class SchedulerJobServiceImpl implements SchedulerJobService{
 
 				Trigger trigger;
 				if (jobInfo.getCronJob()) {
-					trigger = scheduleCreator.createCronTrigger(jobInfo.getJobName(), new Date(),
-							jobInfo.getCronExpression(), SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW);
+					trigger = scheduleCreator.createCronTrigger(jobInfo.getJobName(),jobInfo.getJobGroup(), new Date(),
+							jobInfo.getCronExpression());
 				} else {
 					trigger = scheduleCreator.createSimpleTrigger(jobInfo.getJobName(), new Date(),
-							jobInfo.getRepeatTime(), SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW);
+							jobInfo.getRepeatTime());
 				}
 				scheduler.scheduleJob(jobDetail, trigger);
 				jobInfo.setJobStatus("SCHEDULED");
@@ -170,11 +170,10 @@ public class SchedulerJobServiceImpl implements SchedulerJobService{
 	public void updateScheduleJob(SchedulerJobInfo jobInfo) {
 		Trigger newTrigger;
 		if (jobInfo.getCronJob()) {
-			newTrigger = scheduleCreator.createCronTrigger(jobInfo.getJobName(), new Date(),
-					jobInfo.getCronExpression(), SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW);
+			newTrigger = scheduleCreator.createCronTrigger(jobInfo.getJobName(),jobInfo.getJobGroup(), new Date(),
+					jobInfo.getCronExpression());
 		} else {
-			newTrigger = scheduleCreator.createSimpleTrigger(jobInfo.getJobName(), new Date(), jobInfo.getRepeatTime(),
-					SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW);
+			newTrigger = scheduleCreator.createSimpleTrigger(jobInfo.getJobName(), new Date(), jobInfo.getRepeatTime());
 		}
 		try {
 			schedulerFactoryBean.getScheduler().rescheduleJob(TriggerKey.triggerKey(jobInfo.getJobName()), newTrigger);

@@ -119,7 +119,7 @@ public class SchedulerJobService implements JobService{
 		} else {
 			scheduleJob.setJobClass(SimpleJob.class.getName());
 			scheduleJob.setCronJob(false);
-			scheduleJob.setRepeatTime((Integer) 1);
+			scheduleJob.setRepeatTime((Long) 1);
 		}
 		if (StringUtils.isEmpty(scheduleJob.getId())) {
 			log.info("Job Info: {}", scheduleJob);

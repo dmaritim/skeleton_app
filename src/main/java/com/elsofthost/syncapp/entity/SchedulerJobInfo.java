@@ -39,7 +39,7 @@ public class SchedulerJobInfo {
     private String interfaceName;
     
     @Column(name = "repeat_time")
-    private Integer repeatTime;
+    private Long repeatTime;
     
     @Column(name = "cron_job")
     private Boolean cronJob;
@@ -50,7 +50,7 @@ public class SchedulerJobInfo {
 	}
 	
 	public SchedulerJobInfo(Long jobId, String jobName, String jobGroup, String jobStatus, String jobClass,
-			String cronExpression, String desc, String interfaceName, Integer repeatTime, Boolean cronJob) {
+			String cronExpression, String desc, String interfaceName, Long repeatTime, Boolean cronJob) {
 		super();
 		this.Id = jobId;
 		this.jobName = jobName;
@@ -88,7 +88,7 @@ public class SchedulerJobInfo {
 	public String getInterfaceName() {
 		return interfaceName;
 	}
-	public Integer getRepeatTime() {
+	public Long getRepeatTime() {
 		return repeatTime;
 	}
 	public Boolean getCronJob() {
@@ -118,7 +118,7 @@ public class SchedulerJobInfo {
 	public void setInterfaceName(String interfaceName) {
 		this.interfaceName = interfaceName;
 	}
-	public void setRepeatTime(Integer repeatTime) {
+	public void setRepeatTime(Long repeatTime) {
 		this.repeatTime = repeatTime;
 	}
 	public void setCronJob(Boolean cronJob) {

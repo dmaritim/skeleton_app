@@ -1,6 +1,6 @@
 package com.elsofthost.syncapp.config;
 
-<<<<<<< HEAD
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -21,10 +21,6 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 
 
-@Configuration
-public class SchedulerConfig {
-	private static final Logger logger = LoggerFactory.getLogger(SchedulerConfig.class);
-=======
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -38,7 +34,7 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
 @Configuration
 public class SchedulerConfig {
->>>>>>> 67df3bf126e02c14a84dd83edd9d17d6e6653c5c
+	private static final Logger logger = LoggerFactory.getLogger(SchedulerConfig.class);
 
 	@Autowired
 	private DataSource dataSource;
@@ -46,7 +42,7 @@ public class SchedulerConfig {
 	@Autowired
 	private ApplicationContext applicationContext;
 
-<<<<<<< HEAD
+
 //	@Autowired
 //	private QuartzProperties quartzProperties;
 	
@@ -154,7 +150,6 @@ public class SchedulerConfig {
         scheduler.start();
         return scheduler;
     }
-=======
 	@Autowired
 	private QuartzProperties quartzProperties;
 
@@ -174,5 +169,4 @@ public class SchedulerConfig {
 		factory.setJobFactory(jobFactory);
 		return factory;
 	}
->>>>>>> 67df3bf126e02c14a84dd83edd9d17d6e6653c5c
 }

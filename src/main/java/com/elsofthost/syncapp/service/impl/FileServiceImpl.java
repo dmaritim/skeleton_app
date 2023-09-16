@@ -1,10 +1,7 @@
 package com.elsofthost.syncapp.service.impl;
 
 import java.io.IOException;
-<<<<<<< HEAD
-=======
 import java.util.List;
->>>>>>> 67df3bf126e02c14a84dd83edd9d17d6e6653c5c
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,11 @@
 package com.elsofthost.syncapp.job;
-<<<<<<< HEAD
+import java.text.MessageFormat;
+import java.util.List;
+import java.util.Map;
+
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
+import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,27 +27,3 @@ public class SimpleJob implements Job {
 //                getClass(), param));
 //    }
 }
-=======
-
-import java.util.stream.IntStream;
-
-import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
-import org.springframework.scheduling.quartz.QuartzJobBean;
-
-public class SimpleJob extends QuartzJobBean {
-    @Override
-    protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        //log.info("SimpleJob Start................");
-        IntStream.range(0, 5).forEach(i -> {
-            //log.info("Counting - {}", i);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                //log.error(e.getMessage(), e);
-            }
-        });
-        //log.info("SimpleJob End................");
-    }
-}
->>>>>>> 67df3bf126e02c14a84dd83edd9d17d6e6653c5c
